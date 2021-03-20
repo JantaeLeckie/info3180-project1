@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
 {% block main %}
-
-{% endblock %}
 {% include 'flashes.html' %}
 
 <h1 class="page-header">Properties</h1>
@@ -16,6 +14,7 @@
             {{prop.property_location}}
             {{prop.property_price}}
         </div>
-        <button class="btn" type="submit"><a href="{{url_for('getproperty', propid= prop.property_id)}}" >View Property</a></button>
+        <button class="btn" type="submit"><a href="{{url_for('viewproperty', propertyid = prop.property_id)}}" >View Property</a></button>
     {%endfor%}
 </div>
+{% endblock %}

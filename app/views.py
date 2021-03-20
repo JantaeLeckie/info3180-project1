@@ -50,8 +50,9 @@ def myproperty():
         myfilename = secure_filename(myimage.filename)
         myimage.save(os.path.join(app.config['UPLOAD_FOLDER'], myfilename))
 
-        # db.session.add(Property(pform.title.data, pform.description.data, pform.rooms.data, pform.bath.data, pform.price.data, pform.ptype.data, pform.location.data, myfilename))
-        # db.session.commit()
+        db.session.add(Property(pform.title.data, pform.description.data, pform.rooms.data, pform.bath.data, pform.price.data, pform.ptype.data, pform.location.data, myfilename))
+        db.session.commit()
+        
         flash('Property Added', 'success')
         return redirect(url_for('properties'))
     return render_template("property.html", form=pform)
@@ -62,16 +63,15 @@ def properties():
     return render_template("properties.html", props = props)
 
 @app.route("/property/<propertyid>")
-def viewproperty(propid):
-    prop = Property.query.filter_by(property_id=propid).first()
+def viewproperty(propertyid):
+    prop = Property.query.filter_by(property_id=propertyid).first()
     return render_template('viewproperty.html', prop=prop)
 
 @app.route('/uploads/<filename>')
 def getimage(filename):
     rootdir = os.getcwd()
     return  send_from_directory(os.path.join(rootdir,app.config['UPLOAD_FOLDER']),filename)
-def connect_db():
-    return psycopg2.connect(host="localhost", database="mydb", user="jantae", password="password123")
+
 
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):
