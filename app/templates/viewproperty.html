@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+{% endblock %}
+{% include 'flashes.html' %}
+
+<h1 class="page-header">Individual Property</h1>
+<p>This webpage is about Individual Properties.</p>
+
+<div class = 'prop'>
+    <img class ='propimg' src = "{{ url_for('getimage', filename= prop.property_photo) }}" alt ="Photo">
+    <div class = "propbody">
+        {{prop.property_title}}
+        {{prop.property_description}}
+        {{prop.property_rooms}}
+        {{prop.property_bathroom}}
+        {{prop.property_type}}
+        {{prop.property_location}}
+        {{prop.property_price}}
+    </div>
+    <button class="btn" type="submit">Email Realtor</button>
+</div>
