@@ -1,28 +1,44 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<h1 class="page-header">Add Property</h1>
+<h1 class="page-header">Add New Property</h1>
 
 <form action="{{ url_for('myproperty') }}" method="POST" enctype="multipart/form-data">
   {{ form.csrf_token }}
   {# Add the file upload field as you learnt for Flask-WTF #}
-  <div>
-    {{form.title.label}}
-    {{form.title(class='form-control')}}
-    {{form.description.label}}
-    {{form.description(class='form-control')}}
-    {{form.rooms.label}}
-    {{form.rooms(class='form-control')}}
-    {{form.bath.label}}
-    {{form.bath(class='form-control')}}
-    {{form.price.label}}
-    {{form.price(class='form-control')}}
-    {{form.ptype.label}}
-    {{form.ptype(class='form-control')}}
-    {{form.location.label}}
-    {{form.location(class='form-control')}}
-    {{form.photo.label}}
-    {{form.photo(class='form-control')}}
+  <div class="formf">
+    <div class = "frooms">
+      {{form.title.label (class="flable")}} <br>
+      {{form.title (class="ffield")}}
+    </div>
+    <div class = "frooms">
+      {{form.description.label (class="flable")}}<br>
+      {{form.description (class="ffield")}}
+    </div>
+    <div class = "fgrid">
+      <div class = "frooms">
+        {{form.rooms.label (class="flable")}}<br>
+        {{form.rooms (class="ffield")}}
+      </div>
+      <div class = "fbaths">
+        {{form.bath.label (class="flable")}}<br>
+        {{form.bath (class="ffield")}} 
+      </div>
+      <div class = "fprice">
+        {{form.price.label (class="flable")}}<br>
+        {{form.price (class="ffield")}}
+      </div>
+      <div class = "ftype">
+        {{form.ptype.label (class="flable")}}<br>
+        {{form.ptype (class="ffield")}}
+      </div>
+      <div class = "flocay">
+        {{form.location.label (class="flable")}}<br>
+        {{form.location (class="ffield")}} 
+      </div>
+    </div>
+    {{form.photo.label (class="flable")}}<br>
+    {{form.photo (class="ffield")}}
   </div>
   <br>
   <button type="submit" name="submit" class="btn btn-primary">Add Property</button>

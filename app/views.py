@@ -66,6 +66,7 @@ def properties():
 def viewproperty(propertyid):
     prop = Property.query.filter_by(property_id=propertyid).first()
     return render_template('viewproperty.html', prop=prop)
+    
 
 @app.route('/uploads/<filename>')
 def getimage(filename):

@@ -3,18 +3,23 @@
 {% block main %}
 {% include 'flashes.html' %}
 
-<h1 class="page-header">Properties</h1>
-<p>This webpage is about Properties.</p>
+<div class="page-header">
+    <h1 >Properties</h1>
+    <p >This webpage is about Properties.</p>
+</div>
 
 <div class = 'props'>
     {% for prop in props %} 
+    <div class = "card">
         <img class ='propimg' src = "{{ url_for('getimage', filename= prop.property_photo) }}" alt ="Photo">
         <div class = "propbody">
-            {{prop.property_title}}
-            {{prop.property_location}}
-            {{prop.property_price}}
-        </div>
-        <button class="btn" type="submit"><a href="{{url_for('viewproperty', propertyid = prop.property_id)}}" >View Property</a></button>
+            <div class = "title">{{prop.property_title}}</div>
+            <div class = "location">{{prop.property_location}}</div>
+            <div class = "price">{{prop.property_price}}</div>
+        </div><br>
+        <a href="{{url_for('viewproperty', propertyid = prop.property_id)}}" ><div class="invidprop">View Property</div></a>
+        
+    </div>
     {%endfor%}
 </div>
 {% endblock %}

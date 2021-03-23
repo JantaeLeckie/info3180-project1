@@ -3,20 +3,27 @@
 {% block main %}
 {% include 'flashes.html' %}
 
-<h1 class="page-header">Individual Property</h1>
-<p>This webpage is about Individual Properties.</p>
+<div class="page-header">
+    <h1 >Individual Property</h1>
+    <p>This webpage is about Individual Properties.</p>
+</div>
+
 
 <div class = 'prop'>
-    <img class ='propimg' src = "{{ url_for('getimage', filename= prop.property_photo) }}" alt ="Photo">
-    <div class = "propbody">
-        {{prop.property_title}}
-        {{prop.property_description}}
-        {{prop.property_rooms}}
-        {{prop.property_bathroom}}
-        {{prop.property_type}}
-        {{prop.property_location}}
-        {{prop.property_price}}
+    <img class ='propimg2' src = "{{ url_for('getimage', filename= prop.property_photo) }}" alt ="Photo">
+    <div class = "propbod">
+        <div class = "proptitle">{{prop.property_title}}</div>
+        <div class = propbt>
+            <div class = "propprice">{{prop.property_price}}</div>
+            <div class = "proptype">{{prop.property_type}}</div>
+        </div>
+        <div class = "propdesc">{{prop.property_description}}</div>
+        <div class = "bedbath">
+            <div class = "proprooms">{{prop.property_rooms}} Bedrooms</div>
+            <div class = "propbaths">{{prop.property_bathroom}} Bathrooms</div>
+        </div>
+        <div class = "proplocay">{{prop.property_location}}</div>
+        <button class="btn" type="submit">Email Realtor</button>
     </div>
-    <button class="btn" type="submit">Email Realtor</button>
 </div>
 {% endblock %}
